@@ -1,0 +1,22 @@
+<div class="t-center">
+  <h1>Parent</h1>
+  <select
+    id="select"
+    name="parent"
+    style="box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; border: none"
+    [(ngModel)]="selectedParent"
+    (change)="changed()"
+  >
+    <option *ngFor="let data of parentData">
+      {{ data.name }} {{ data.Id }}
+    </option>
+  </select>
+
+  <p style="font-size: 1.5rem">{{ msg }}</p>
+
+  <!-- Passing Id to child component -->
+  <app-child
+    [data]="passId"
+    (passMsgToParent)="msgRecieved($event)"
+  ></app-child>
+</div>
